@@ -1,0 +1,64 @@
+<x-layout> {{-- Utilise le composant Blade "layout" qui contient la structure générale de la page --}}
+
+    <x-slot:title> {{-- On remplit le slot "title" du layout --}}
+        Modifier une tâche {{-- Le titre affiché dans la page ou l'onglet --}}
+    </x-slot:title>
+
+    <!-- Message de réussite -->
+    @if (session()->has('message')) {{-- Si la session contient un message de confirmation --}}
+        <div class="mt-3 mb-4 list-disc list-inside text-sm text-green-600">
+            {{ session('message') }} {{-- Affiche le contenu du message (par ex. "Tâche mise à jour") --}}
+        </div>
+    @endif
+
+    <form action="{{ route('tasks.update', $task->id) }}" method="post"> {{-- Formulaire vers la route "tasks.update" avec l’ID de la tâche --}}
+        @csrf {{-- Token de sécurité CSRF obligatoire pour valider la requête --}}
+        @method('put') {{-- Indique que la requête est en réalité de type PUT (mise à jour) --}}
+
+        <!-- Titre -->
+        <div class="mb-4"> {{-- Bloc pour le champ "titre" --}}
+            <x-label for="title" label="Titre :" /> {{-- Label personnalisé via un composant --}}
+            <input 
+                type="text" {{-- Champ texte --}}
+                id="title" 
+                name="title" 
+                class="w-full px-3 py-2 border rounded" {{-- Styles Tailwind (plein largeur, padding, bordure arrondie) --}}
+                value="{{ old('title', $task->title) }}" {{-- Valeur par défaut = ancienne saisie ou le titre existant --}}
+                required {{-- Champ obligatoire --}}
+            >
+            <x-error field="title" /> {{-- Affiche un message d'erreur si la validation échoue pour "title" --}}
+        </div>
+
+        <!-- Détail -->
+        <div class="mb-4"> {{-- Bloc pour le champ "détail" --}}
+            <x-label for="detail" label="Détail :" /> {{-- Label du champ --}}
+            <textarea 
+                id="detail" 
+                name="detail" 
+                class="w-full px-3 py-2 border rounded" {{-- Zone de texte stylisée --}}
+                required {{-- Champ obligatoire --}}
+            >{{ old('detail', $task->detail) }}</textarea> {{-- Contenu par défaut = ancienne saisie ou le détail existant --}}
+            <x-error field="detail" /> {{-- Message d’erreur si la validation échoue --}}
+        </div>
+
+        <!-- Tâche accomplie -->
+        <div class="mb-4"> {{-- Bloc pour la case à cocher --}}
+            <input 
+                id="state" 
+                type="checkbox" 
+                class="w-4 h-4 px-3 py-2 border rounded" {{-- Case à cocher stylisée --}}
+                name="state" 
+                @if(old('state', $task->state)) checked @endif {{-- Coche si la valeur précédente ou la valeur actuelle est "true" --}}
+            >
+            <span class="text-gray-700">{{ __('Tâche accomplie') }}</span> {{-- Texte affiché à côté de la case --}}
+        </div>
+
+        <button 
+            type="submit" 
+            class="bg-blue-500 text-white px-4 py-2 rounded" {{-- Bouton bleu avec texte blanc --}}
+        >
+            Envoyer
+        </button>
+    </form>
+
+</x-layout> {{-- Fin du composant layout --}}
