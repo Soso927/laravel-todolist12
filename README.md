@@ -1,61 +1,172 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## 🎯 Objectif global
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Créer un site web complet (front + back-office) en **Laravel**, respectant la maquette et intégrant :
 
-## About Laravel
+- Accessibilité (RGAA/WCAG)  
+- SEO  
+- Gestion multilingue (FR/EN)  
+- Authentification, rôles & permissions  
+- Back-office (CRUD) pour gérer contenus (planètes, équipage, technologies, utilisateurs)  
+- Tests unitaires  
+- Gestion de version (Git)  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 1. 📂 Préparation du projet
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Objectifs :**
 
-## Learning Laravel
+- Installer l’environnement de travail.  
+- Poser les bases techniques et organisationnelles.  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Tâches :**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. Installer Laravel & dépendances (PHP, Composer, Node.js, npm).  
+2. Configurer Git + GitHub (repo avec branche principale + branches par feature).  
+3. Installer un package CSS (choisir : Tailwind ou Bootstrap).  
+4. Créer un fichier `README.md` avec les infos projet (installation, commandes, organisation).  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Ressources :**
 
-## Laravel Sponsors
+- Docs Laravel, Tailwind, GitHub.  
+- Outils : VS Code, GitHub Desktop ou ligne de commande.  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+**Délais :** 1 à 2 jours.
 
-### Premium Partners
+⚠️ **Point critique :** Bien configurer Git dès le départ pour éviter les pertes de code.  
+👉 **Solution :** commits réguliers + branches par fonctionnalité.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 2. 🎨 Intégration de la maquette (Partie 1)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Objectifs :**
 
-## Code of Conduct
+- Transformer la maquette PDF en pages HTML/CSS avec Blade.  
+- Site responsive + accessibilité.  
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Tâches :**
 
-## Security Vulnerabilities
+1. Créer les routes Laravel (Accueil, Destinations, Équipage, Technologies).  
+2. Implémenter la navigation (menu fixe, états actif/survol).  
+3. Créer les templates Blade avec la bonne structure HTML.  
+4. Intégrer le design system (couleurs, typographies, marges).  
+5. Tester le responsive (mobile, tablette, desktop).  
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Ressources :** maquette + Tailwind/Bootstrap.
 
-## License
+**Délais :** 1 semaine.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+⚠️ **Risques :** erreurs de responsive ou oubli d’accessibilité.  
+👉 **Solution :** valider régulièrement avec simulateurs et outils Lighthouse.
+
+---
+
+## 3. 🌍 Internationalisation (Partie 2)
+
+**Objectifs :**
+
+- Rendre le site bilingue FR/EN.  
+
+**Tâches :**
+
+1. Configurer `lang` de Laravel.  
+2. Créer fichiers de traduction (`fr.json`, `en.json`).  
+3. Ajouter un sélecteur de langue accessible (clavier, screen reader).  
+4. Vérifier que la page reste la même lors du switch de langue.  
+
+**Ressources :** Docs Laravel i18n.
+
+**Délais :** 3 jours.
+
+⚠️ **Risque :** incohérence des traductions.  
+👉 **Solution :** centraliser les textes dans fichiers `lang`.
+
+---
+
+## 4. 🧪 Tests unitaires des routes (Partie 3)
+
+**Objectifs :**
+
+- Vérifier que chaque URL répond correctement (200, 404, redirection).  
+
+**Tâches :**
+
+1. Installer PHPUnit (inclus avec Laravel).  
+2. Écrire des tests _Feature_ pour toutes les routes.  
+3. Tester les deux langues (FR/EN).  
+4. Automatiser avec `php artisan test`.  
+
+**Ressources :** Docs Laravel Testing.
+
+**Délais :** 2 jours.
+
+⚠️ **Risque :** routes oubliées → tests incomplets.  
+👉 **Solution :** lister toutes les routes avec `php artisan route:list`.
+
+---
+
+## 5. 🔧 Back-office CRUD (Parties 4, 5, 6)
+
+**Objectifs :**
+
+- Gérer dynamiquement **Planètes, Équipage, Technologies**.  
+
+**Tâches :**
+
+1. Installer Laravel Breeze (authentification).  
+2. Installer **Spatie/laravel-permission** (rôles/permissions).  
+3. Créer modèles & migrations (`planetes`, `equipage`, `technologies`).  
+4. Implémenter CRUD (Lister, Ajouter, Modifier, Supprimer).  
+5. Vérifier que les modifications apparaissent côté public.  
+
+**Ressources :** Docs Breeze + Spatie.
+
+**Délais :** 2 semaines (3 CRUD).
+
+⚠️ **Risque :** erreurs de permission ou de cache.  
+👉 **Solution :** tester chaque rôle + invalider cache au besoin.
+
+---
+
+## 6. 👥 Gestion des utilisateurs (Partie 7)
+
+**Objectifs :**
+
+- Ajouter gestion des utilisateurs et rôles.  
+
+**Tâches :**
+
+1. Créer CRUD utilisateurs.  
+2. Ajouter attribution des rôles (Admin, Gestionnaires).  
+3. Vérifier les accès (middleware/policies).  
+
+**Délais :** 1 semaine.
+
+⚠️ **Risque :** fuite d’accès non autorisé.  
+👉 **Solution :** tests unitaires + middleware rigoureux.
+
+---
+
+## 7. 📈 Améliorations & extensions (Partie 8)
+
+**Idées possibles :**
+
+- Blog d’actualités spatiales.  
+- Formulaire de contact (avec validation & envoi d’email).  
+- Ajout d’animations (GSAP, Framer Motion).  
+
+---
+
+## 8. 📅 Planning global (calendrier indicatif)
+
+- **Semaine 1 :** Préparation + intégration maquette.  
+- **Semaine 2 :** Finitions maquette + internationalisation.  
+- **Semaine 3 :** Tests unitaires + début back-office (Planètes).  
+- **Semaine 4 :** CRUD Équipage + CRUD Technologies.  
+- **Semaine 5 :** Gestion des utilisateurs et rôles.  
+- **Semaine 6 :** Extensions + tests finaux + livraison.  
+
+---
+
+👉 Veux-tu que je transforme cette feuille de route en **tableau visuel type Gantt** pour que tu puisses suivre ton avancement semaine par semaine ?

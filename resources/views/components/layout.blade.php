@@ -22,7 +22,7 @@
 
 <body class="bg-gray-100">
 <!-- Corps de la page avec un arrière-plan gris clair (classe Tailwind) -->
-
+    <x-header />
     <div class="container mx-auto p-4 max-w-4xl">
     <!-- Conteneur centré :
          - mx-auto : marge horizontale automatique
