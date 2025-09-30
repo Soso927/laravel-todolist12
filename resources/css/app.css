@@ -11,5 +11,6 @@
 }
 
 .toto {
+    background-image: url('../../public/images/Background.png');
     background-color: green;
 }

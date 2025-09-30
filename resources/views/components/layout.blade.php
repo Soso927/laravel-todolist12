@@ -36,10 +36,10 @@
              - mb-4 : marge inférieure de 1rem
              - {{ $title }} : injection de la variable $title du composant Blade -->
 
-        {{ $slot }}
+        
         <!-- Espace réservé au contenu enfant injecté dans ce layout -->
     </div>
-
+{{ $slot }}
 </body>
 </html>
 
