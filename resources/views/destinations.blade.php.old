@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mes tâches</title>
+
+  <!-- Laravel Vite (CSS + JS) -->
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<!-- ===================== BODY (fond + couleur de texte) ===================== -->
+<body class="min-h-screen bg-[url('/images/background.png')] bg-cover bg-center text-white">
+
+  <!-- ===================== 1) HEADER : logo + navigation ===================== -->
+  <header class="relative">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-6 pt-6">
+
+        <!-- Logo (Accueil) -->
+        <a href="#accueil"
+           class="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 ring-1 ring-white/20"
+           aria-label="Aller à l’accueil">
+          <img src="{{ asset('images/Logo.png') }}" alt="Logo du site" class="w-6 h-6" />
+        </a>
+
+        <!-- Trait séparateur -->
+        <div class="h-px flex-1 bg-white/20"></div>
+        
+        <!-- Barre de navigation principale -->
+        <nav aria-label="Navigation principale"
+             class="relative rounded-l-2xl bg-slate-900/60 backdrop-blur-md ring-1 ring-white/10 pl-10 pr-8 py-4">
+          <ul class="flex items-center gap-10 text-sm tracking-[0.2em] uppercase">
+            <li>
+              <a href="#accueil"
+                 class="group inline-flex items-center gap-3 pb-2 border-b-2 border-transparent hover:border-white/50 transition">
+                <span class="font-semibold text-white/60 group-hover:text-white">00</span>
+                <span class="font-medium">Accueil</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#destination"
+                 aria-current="page"
+                 class="group inline-flex items-center gap-3 pb-2 border-b-2 border-white transition">
+                <span class="font-semibold text-white/90">01</span>
+                <span class="font-medium">Destination</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#equipage"
+                 class="group inline-flex items-center gap-3 pb-2 border-b-2 border-transparent hover:border-white/50 transition">
+                <span class="font-semibold text-white/60 group-hover:text-white">02</span>
+                <span class="font-medium">Équipage</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#technologie"
+                 class="group inline-flex items-center gap-3 pb-2 border-b-2 border-transparent hover:border-white/50 transition">
+                <span class="font-semibold text-white/60 group-hover:text-white">03</span>
+                <span class="font-medium">Technologie</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Liseré décoratif -->
+          <span class="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-white"></span>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== 2) MAIN : contenu principal ===================== -->
+  <main id="accueil">
+
+    <!-- (Optionnel) Composant Blade -->
+    <x-header />
+
+    <!-- ===== Section : Destination ===== -->
+    <section id="destination" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-14">
+
+      <!-- Sur-titre -->
+      <p class="uppercase tracking-[0.3em] text-white/70 text-sm mb-8">
+        <span class="font-semibold text-white/80">01</span>
+        <span class="ml-3">Choisissez votre destination</span>
+      </p>
+
+      <!-- Grille : image (gauche) / contenu (droite) -->
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <!-- Colonne gauche : image de la Lune -->
+        <div class="justify-self-center lg:justify-self-start">
+          <img
+            src="{{ asset('images/planete-lune.png') }}"
+            alt="La Lune"
+            class="w-[300px] sm:w-[420px] lg:w-[520px] aspect-square rounded-full object-cover shadow-[0_0_120px_rgba(255,255,255,0.08)]"
+          />
+        </div>
+
+        <!-- Colonne droite : onglets + contenu -->
+        <div class="max-w-xl lg:ml-6">
+
+          <!-- Onglets des planètes -->
+          <ul class="flex items-center gap-8 text-xs sm:text-sm tracking-[0.25em] uppercase text-white/70">
+            <li>
+              <a href="#lune" class="relative pb-1 text-white">
+                Lune
+                <span class="absolute -bottom-1 left-0 h-[2px] w-6 bg-white"></span>
+              </a>
+            </li>
+            <li><a href="#mars" class="hover:text-white/90">Mars</a></li>
+            <li><a href="#europe" class="hover:text-white/90">Europe</a></li>
+            <li><a href="#titan" class="hover:text-white/90">Titan</a></li>
+          </ul>
+
+          <!-- Titre principal -->
+          <h1 class="mt-6 text-6xl sm:text-7xl font-light tracking-wide">LUNE</h1>
+
+          <!-- Paragraphe descriptif (orthographe corrigée) -->
+          <p class="mt-6 text-white/80 leading-relaxed">
+            Voyez notre planète comme vous ne l’avez jamais vue auparavant. Un parfait voyage de détente
+            pour vous aider à prendre du recul et revenir requinqué. Pendant que vous y êtes, plongez-vous
+            dans l’histoire en visitant les sites d’atterrissage de Luna&nbsp;2 et Apollo&nbsp;11.
+          </p>
+
+          <!-- Ligne de séparation -->
+          <div class="mt-8 border-t border-white/20"></div>
+
+          <!-- Stats : Distance / Durée -->
+          <div class="mt-6 grid grid-cols-2 gap-6">
+            <div>
+              <p class="uppercase text-xs tracking-[0.25em] text-white/60">Distance</p>
+              <p class="mt-2 text-2xl sm:text-3xl">384&nbsp;000&nbsp;km</p>
+            </div>
+            <div>
+              <p class="uppercase text-xs tracking-[0.25em] text-white/60">Durée</p>
+              <p class="mt-2 text-2xl sm:text-3xl">3&nbsp;jours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- (Exemples de sections ancrées) -->
+    <section id="equipage" class="sr-only" aria-hidden="true"></section>
+    <section id="technologie" class="sr-only" aria-hidden="true"></section>
+  </main>
+
+
+
+</body>
+</html>
